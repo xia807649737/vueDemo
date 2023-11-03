@@ -1,0 +1,137 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+
+.label-search {
+  padding-bottom: 5px;
+}
+
+.search-width230 {
+  width: 230px;
+}
+
+.search-label {
+  color: #666666;
+  font-size: 14px;
+}
+
+.search-btn {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  // border-bottom: 1px solid #dcdfe6;
+}
+
+.margin-right15 {
+  margin-right: 15px;
+}
+
+  /*滚动条*/
+
+  ::-webkit-scrollbar {
+    width : 5px;
+    height: 5px;
+  }
+
+  /* 滚动槽 */
+  ::-webkit-scrollbar-track {
+    box-shadow        : inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius     : 5px;
+  }
+
+  /* 滚动条滑块 */
+
+  ::-webkit-scrollbar-thumb {
+    border-radius     : 10px;
+    background        : rgba(0, 0, 0, 0.1);
+    box-shadow        : inset 0 0 6px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .el-scrollbar__wrap {
+    overflow: auto !important;
+  }
+
+  /* vue-treeselect */
+  .vue-treeselect__label {
+    font-size: 14px
+  }
+  .vue-treeselect div, .vue-treeselect span {
+    font-size: 14px;
+  }
+  .vue-treeselect__menu {
+    min-height: 250px;
+  }
+  .hideSidebar .main-top .top-title {
+    display: none;
+  }
+  .hideSidebar .main-top .top-image {
+    background-image: url(/label-management/xiaoji.png);
+    display: inline-block;
+    width: 50px;
+    height: 40px;
+    background-size:100% 100%;
+  }
+  
