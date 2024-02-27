@@ -1,0 +1,13 @@
+{
+  "include": ["./src/"],
+  "compilerOptions": {
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    "target": "es2019",
+    "allowJs":true,
+    "removeComments": true,
+    "strict": true,
+    "module":"ESNext",
+    "moduleResolution":"Node",
+    "allowSyntheticDefaultImports":true
+  }
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/css/element-plus.css" />
+    <link rel="stylesheet" href="./assets/css/annotation.css" />
+    <link rel="stylesheet" href="./assets/css/setting.css" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            margin: 50px 20%;
+            position: relative;
+        }
+
+        .ignore,
+        .ignore1 {
+            user-select: none;
+            background: rgb(245, 245, 245);
+        }
+
+        .block {
+            display: inline-block;
+        }
+
+        .textDesc {
+            border: 0;
+            border-radius: 5px;
+            width: 100%;
+            height: 51px;
+            padding: 5px;
+            resize: none;
+            box-sizing: border-box;
+            line-height: 1;
+        }
+
+        .github {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            height: 43px;
+            font-size: 23px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 900;
+            color: #626263;
+        }
+
+        .github img {
+            height: 100%;
+            vertical-align: middle;
+        }
+    </style>
+
+</head>
+<script src="./static/js/vue3.js"></script>
+<script src="./static/js/element-plus.js"></script>
+<script src="../dist/js-mark.js"></script>
+
+<body>
+    <a class="github" href="https://github.com/BigCoal/js-mark">
+        <img src="./static/imgs/github1.jpeg" alt="" srcset="">GitHub
+    </a>
+
+    <div id="app">
+        <!-- <div class="setting" :style="{left:settingOpen?'0px':'-300px'}">
+            <div>
+                搜索功能
+                重置功能
+                设置后备内容功能
+                不可覆盖标注
+                设置不可标注类
+                漂亮代码
+                <el-input @input="searchWord" v-model="searchValue" placeholder="请输入内容"></el-input>
+                <div @click="next">下一个</div>
+            </div>
+            <div class="switch" @click="settingOpen=!settingOpen">
+                <img class="svg" v-if="settingOpen" src="./static/imgs/arrow-left-bold.svg" height="25">
+                <img class="svg" v-else src="./static/imgs/arrow-right-bold.svg" height="25">
+                <span class="title">Setting</span>
+            </div>
+        </div> -->
+
+        <div class="content">
+            <div style="position:relative" id="highlight">
+                <div class="ceshi" style="text-align: center;font-size: 40px;"> Baleen whales eat — and poop — a lot
+                    more
+                    than we thought
+                </div>
+                <p data-paragraph-index="0" style="position:relative">Whale
+                    234343
+                    <span class="ignore hahah">hunting has plundered the seas(被忽略项，不可标注)</span> of giant
+                    whales
+                    for
+                    much of the last century. With the help of modern technology, people have
+                    killed
+                    up to 99 percent of certain species. Some scientists thought this would
+                    cause
+                    krill — the tiny crustaceans that many whales gulp down — to explode in
+                    number.
+                    But that didn't happen. New research suggests whale poop, or a lack of it,
+                    may
+                    explain this.
+                </p>
+                <p data-paragraph-index="1">Krill numbers in Antarctic waters with lots of whale
+                    hunting have dropped by more than 80 percent. With fewer of these
+                    crustaceans,
+                    many other krill predators have gone hungry, such as seabirds and fish.</p>
+                <div>
+                    <img src="./static/imgs/demo1.jpg" alt="2" style="width:100%">
+                </div>
+                <p data-paragraph-index="2" class="ignore">A new study looked at the eating
+                    habits
+                    of baleen whales
+                    (those that use long keratin plates of baleen to help snag prey). These
+                    include
+                    blue and humpback whales. Apparently, baleen whales eat about three times as
+                    much food as we thought. Lots more food means lots more poop. That poop is
+                    rich
+                    in iron. So with fewer whales, ecosystems get less iron and other crucial
+                    nutrients that they need to thrive. That hurts other species, including
+                    krill.(被忽略项，不可标注)
+                </p>
+                <p data-paragraph-index="3">The team shared its findings in the November 4 issue
+                    of
+                    Nature. Restoring whale populations, the researchers say, could help these
+                    ecosystems recover.</p>
+                <p data-paragraph-index="0">Whale
+                    <span class="ignore hahah">hunting has plundered the seas</span> of giant
+                    whales
+                    for
+                    much of the last century. With the help of modern technology, people have
+                    killed
+                    up to 99 percent of certain species. Some scientists thought this would
+                    cause
+                    krill — the tiny crustaceans that many whales gulp down — to explode in
+                    number.
+                    But that didn't happen. New research suggests whale poop, or a lack of it,
+                    may
+                    explain this.
+                </p>
+                <p data-paragraph-index="1">Krill numbers in Antarctic waters with lots of whale
+                    hunting have dropped by more than 80 percent. With fewer of these
+                    crustaceans,
+                    many other krill predators have gone hungry, such as seabirds and fish.</p>
+                <div>
+                    <img src="./static/imgs/demo1.jpg" alt="2" style="width:100%">
+                </div>
+                <p data-paragraph-index="2" class="ignore">A new study looked at the eating
+                    habits
+                    of baleen whales
+                    (those that use long keratin plates of baleen to help snag prey). These
+                    include
+                    blue and humpback whales. Apparently, baleen whales eat about three times as
+                    much food as we thought. Lots more food means lots more poop. That poop is
+                    rich
+                    in iron. So with fewer whales, ecosystems get less iron and other crucial
+                    nutrients that they need to thrive. That hurts other species, including
+                    krill.
+                </p>
+                <p data-paragraph-index="3">The team shared its findings in the November 4 issue
+                    of
+                    Nature. Restoring whale populations, the researchers say, could help these
+                    ecosystems recover.</p>
+                <p data-paragraph-index="0">Whale
+                    <span class="ignore hahah">hunting has plundered the seas</span> of giant
+                    whales
+                    for
+                    much of the last century. With the help of modern technology, people have
+                    killed
+                    up to 99 percent of certain species. Some scientists thought this would
+                    cause
+                    krill — the tiny crustaceans that many whales gulp down — to explode in
+                    number.
+                    But that didn't happen. New research suggests whale poop, or a lack of it,
+                    may
+                    explain this.
+                </p>
+                <p data-paragraph-index="1">Krill numbers in Antarctic waters with lots of whale
+                    hunting have dropped by more than 80 percent. With fewer of these
+                    crustaceans,
+                    many other krill predators have gone hungry, such as seabirds and fish.</p>
+                <div>
+                    <img src="./static/imgs/demo1.jpg" alt="2" style="width:100%">
+                </div>
+                <p data-paragraph-index="2" class="ignore">A new study looked at the eating
+                    habits
+                    of baleen whales
+                    (those that use long keratin plates of baleen to help snag prey). These
+                    include
+                    blue and humpback whales. Apparently, baleen whales eat about three times as
+                    much food as we thought. Lots more food means lots more poop. That poop is
+                    rich
+                    in iron. So with fewer whales, ecosystems get less iron and other crucial
+                    nutrients that they need to thrive. That hurts other species, including
+                    krill.
+                </p>
+                <p data-paragraph-index="3">The team shared its findings in the November 4 issue
+                    of
+                    Nature. Restoring whale populations, the researchers say, could help these
+                    ecosystems recover.</p>
+                <p data-paragraph-index="0">Whale
+                    <span class="ignore hahah">hunting has plundered the seas</span> of giant
+                    whales
+                    for
+                    much of the last century. With the help of modern technology, people have
+                    killed
+                    up to 99 percent of certain species. Some scientists thought this would
+                    cause
+                    krill — the tiny crustaceans that many whales gulp down — to explode in
+                    number.
+                    But that didn't happen. New research suggests whale poop, or a lack of it,
+                    may
+                    explain this.
+                </p>
+                <p data-paragraph-index="1">Krill numbers in Antarctic waters with lots of whale
+                    hunting have dropped by more than 80 percent. With fewer of these
+                    crustaceans,
+                    many other krill predators have gone hungry, such as seabirds and fish.</p>
+                <div>
+                    <img src="./static/imgs/demo1.jpg" alt="2" style="width:100%">
+                </div>
+                <p data-paragraph-index="2" class="ignore">A new study looked at the eating
+                    habits
+                    of baleen whales
+                    (those that use long keratin plates of baleen to help snag prey). These
+                    include
+                    blue and humpback whales. Apparently, baleen whales eat about three times as
+                    much food as we thought. Lots more food means lots more poop. That poop is
+                    rich
+                    in iron. So with fewer whales, ecosystems get less iron and other crucial
+                    nutrients that they need to thrive. That hurts other species, including
+                    krill.
+                </p>
+                <p data-paragraph-index="3">The team shared its findings in the November 4 issue
+                    of
+                    Nature. Restoring whale populations, the researchers say, could help these
+                    ecosystems recover.</p>
+            </div>
+
+            <div class="annotation marked" v-for="item in antRecords" :data-uid="item.uid">
+                <template v-if="!item.isEdit">
+                    {{item.desc}}
+                </template>
+                <template v-else>
+                    <span class="label">Annotation</span>
+                    <div>
+                        <template v-for="(className,i) in cssStyle">
+                            <span class="block color-block" :class="className"
+                                @click="setMarkClass($event,className,item.uid)"></span>
+                        </template>
+                    </div>
+
+                    <textarea class="textDesc" placeholder="备注" v-model="textDesc"></textarea>
+                    <div>
+                        <span class="block save" @click="save(item.uid)">SAVE</span>
+                        <span class=" block delete" @click="deleteAnnotation(item.uid)">DELETE</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="module" src="./index.js" setup></script>
+</body>
+
+
+</html>

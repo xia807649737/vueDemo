@@ -379,7 +379,7 @@ export default {
               id: 'easy', // [必选] ID, 所有节点的ID不应有重复，否则ID重复的结节将被忽略
               topic: 'Easy', // [必选] 节点上显示的内容
               direction: 'right', // [可选] 节点的方向，此数据仅在第一层节点上有效，目前仅支持 left 和 right 两种，默认为 right
-              expanded: true, // [可选] 该节点是否是展开状态，默认为 true
+              expanded: false, // [可选] 该节点是否是展开状态，默认为 true
               type: '4', // [可选]自定义节点类型
               children: [
                 { id: 'easy1', topic: 'Easy to show', type: '1' },
